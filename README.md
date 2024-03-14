@@ -1,5 +1,9 @@
-# Algorand
-blockchain
+# Algorand blockchain
+## Setup 
+
+1. Install [algokit](https://github.com/algorandfoundation/algokit-cli) 
+2. Run Docker
+3. Launch Algorand localnet with `algokit localnet start`
 # commands 
 # List of accounts 
 1. algokit goal account list
