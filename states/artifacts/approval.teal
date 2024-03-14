@@ -2,131 +2,275 @@
 txn NumAppArgs
 int 0
 ==
-bnz main_l12
+bnz main_l30
 txna ApplicationArgs 0
 method "writeGlobal(string)void"
 ==
-bnz main_l11
+bnz main_l29
 txna ApplicationArgs 0
 method "readGlobal()string"
 ==
-bnz main_l10
+bnz main_l28
+txna ApplicationArgs 0
+method "deleteGlobal()void"
+==
+bnz main_l27
 txna ApplicationArgs 0
 method "writeLocal(string)void"
 ==
-bnz main_l9
+bnz main_l26
 txna ApplicationArgs 0
 method "readLocal()string"
 ==
-bnz main_l8
+bnz main_l25
 txna ApplicationArgs 0
 method "deleteLocal()void"
 ==
-bnz main_l7
-err
-main_l7:
-txn OnCompletion
-int NoOp
+bnz main_l24
+txna ApplicationArgs 0
+method "createBox(string)void"
 ==
-txn ApplicationID
-int 0
-!=
-&&
-assert
-callsub deleteLocalcaster_9
-int 1
-return
-main_l8:
-txn OnCompletion
-int NoOp
-==
-txn ApplicationID
-int 0
-!=
-&&
-assert
-callsub readLocalcaster_8
-int 1
-return
-main_l9:
-txn OnCompletion
-int NoOp
-==
-txn ApplicationID
-int 0
-!=
-&&
-assert
-callsub writeLocalcaster_7
-int 1
-return
-main_l10:
-txn OnCompletion
-int NoOp
-==
-txn ApplicationID
-int 0
-!=
-&&
-assert
-callsub readGlobalcaster_6
-int 1
-return
-main_l11:
-txn OnCompletion
-int NoOp
-==
-txn ApplicationID
-int 0
-!=
-&&
-assert
-callsub writeGlobalcaster_5
-int 1
-return
-main_l12:
-txn OnCompletion
-int NoOp
+bnz main_l23
+txna ApplicationArgs 0
+method "createBoxWithPut(string,string)void"
 ==
 bnz main_l22
-txn OnCompletion
-int OptIn
+txna ApplicationArgs 0
+method "replaceBox(string,string)void"
 ==
 bnz main_l21
-txn OnCompletion
-int CloseOut
+txna ApplicationArgs 0
+method "writeBox(string,string)void"
 ==
 bnz main_l20
-txn OnCompletion
-int UpdateApplication
+txna ApplicationArgs 0
+method "extractBox(string,uint8,uint8)string"
 ==
 bnz main_l19
-txn OnCompletion
-int DeleteApplication
+txna ApplicationArgs 0
+method "getBox(string)string"
 ==
 bnz main_l18
+txna ApplicationArgs 0
+method "deleteBox(string)void"
+==
+bnz main_l17
+txna ApplicationArgs 0
+method "getBoxSize(string)uint64"
+==
+bnz main_l16
 err
+main_l16:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub getBoxSizecaster_27
+int 1
+return
+main_l17:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub deleteBoxcaster_26
+int 1
+return
 main_l18:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub getBoxcaster_25
 int 1
 return
 main_l19:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub extractBoxcaster_24
 int 1
 return
 main_l20:
+txn OnCompletion
+int NoOp
+==
 txn ApplicationID
 int 0
 !=
+&&
 assert
+callsub writeBoxcaster_23
 int 1
 return
 main_l21:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub replaceBoxcaster_22
+int 1
+return
+main_l22:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub createBoxWithPutcaster_21
+int 1
+return
+main_l23:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub createBoxcaster_20
+int 1
+return
+main_l24:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub deleteLocalcaster_19
+int 1
+return
+main_l25:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub readLocalcaster_18
+int 1
+return
+main_l26:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub writeLocalcaster_17
+int 1
+return
+main_l27:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub deleteGlobalcaster_16
+int 1
+return
+main_l28:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub readGlobalcaster_15
+int 1
+return
+main_l29:
+txn OnCompletion
+int NoOp
+==
+txn ApplicationID
+int 0
+!=
+&&
+assert
+callsub writeGlobalcaster_14
+int 1
+return
+main_l30:
+txn OnCompletion
+int NoOp
+==
+bnz main_l40
+txn OnCompletion
+int OptIn
+==
+bnz main_l39
+txn OnCompletion
+int CloseOut
+==
+bnz main_l38
+txn OnCompletion
+int UpdateApplication
+==
+bnz main_l37
+txn OnCompletion
+int DeleteApplication
+==
+bnz main_l36
+err
+main_l36:
+int 1
+return
+main_l37:
+int 1
+return
+main_l38:
 txn ApplicationID
 int 0
 !=
 assert
 int 1
 return
-main_l22:
+main_l39:
+txn ApplicationID
+int 0
+!=
+assert
+int 1
+return
+main_l40:
 txn ApplicationID
 int 0
 ==
@@ -159,8 +303,15 @@ concat
 frame_bury 0
 retsub
 
+// deleteGlobal
+deleteGlobal_2:
+proto 0 0
+byte "quote"
+app_global_del
+retsub
+
 // writeLocal
-writeLocal_2:
+writeLocal_3:
 proto 1 0
 txn Sender
 byte "name"
@@ -170,7 +321,7 @@ app_local_put
 retsub
 
 // readLocal
-readLocal_3:
+readLocal_4:
 proto 0 1
 byte ""
 txn Sender
@@ -187,15 +338,121 @@ frame_bury 0
 retsub
 
 // deleteLocal
-deleteLocal_4:
+deleteLocal_5:
 proto 0 0
 txn Sender
 byte "name"
 app_local_del
 retsub
 
+// createBox
+createBox_6:
+proto 1 0
+frame_dig -1
+extract 2 0
+int 9
+box_create
+assert
+retsub
+
+// createBoxWithPut
+createBoxWithPut_7:
+proto 2 0
+frame_dig -2
+extract 2 0
+frame_dig -1
+extract 2 0
+box_put
+retsub
+
+// replaceBox
+replaceBox_8:
+proto 2 0
+frame_dig -2
+extract 2 0
+int 0
+frame_dig -1
+extract 2 0
+box_replace
+retsub
+
+// writeBox
+writeBox_9:
+proto 2 0
+frame_dig -2
+extract 2 0
+frame_dig -1
+extract 2 0
+box_put
+retsub
+
+// extractBox
+extractBox_10:
+proto 3 1
+byte ""
+frame_dig -3
+extract 2 0
+frame_dig -2
+frame_dig -1
+box_extract
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// getBox
+getBox_11:
+proto 1 1
+byte ""
+frame_dig -1
+extract 2 0
+box_get
+store 1
+store 0
+load 1
+assert
+load 0
+frame_bury 0
+frame_dig 0
+len
+itob
+extract 6 0
+frame_dig 0
+concat
+frame_bury 0
+retsub
+
+// deleteBox
+deleteBox_12:
+proto 1 0
+frame_dig -1
+extract 2 0
+box_del
+assert
+retsub
+
+// getBoxSize
+getBoxSize_13:
+proto 1 1
+int 0
+frame_dig -1
+extract 2 0
+box_len
+store 3
+store 2
+load 3
+assert
+load 2
+frame_bury 0
+retsub
+
 // writeGlobal_caster
-writeGlobalcaster_5:
+writeGlobalcaster_14:
 proto 0 0
 byte ""
 txna ApplicationArgs 1
@@ -205,7 +462,7 @@ callsub writeGlobal_0
 retsub
 
 // readGlobal_caster
-readGlobalcaster_6:
+readGlobalcaster_15:
 proto 0 0
 byte ""
 callsub readGlobal_1
@@ -216,21 +473,27 @@ concat
 log
 retsub
 
+// deleteGlobal_caster
+deleteGlobalcaster_16:
+proto 0 0
+callsub deleteGlobal_2
+retsub
+
 // writeLocal_caster
-writeLocalcaster_7:
+writeLocalcaster_17:
 proto 0 0
 byte ""
 txna ApplicationArgs 1
 frame_bury 0
 frame_dig 0
-callsub writeLocal_2
+callsub writeLocal_3
 retsub
 
 // readLocal_caster
-readLocalcaster_8:
+readLocalcaster_18:
 proto 0 0
 byte ""
-callsub readLocal_3
+callsub readLocal_4
 frame_bury 0
 byte 0x151f7c75
 frame_dig 0
@@ -239,7 +502,130 @@ log
 retsub
 
 // deleteLocal_caster
-deleteLocalcaster_9:
+deleteLocalcaster_19:
 proto 0 0
-callsub deleteLocal_4
+callsub deleteLocal_5
+retsub
+
+// createBox_caster
+createBoxcaster_20:
+proto 0 0
+byte ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub createBox_6
+retsub
+
+// createBoxWithPut_caster
+createBoxWithPutcaster_21:
+proto 0 0
+byte ""
+dup
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub createBoxWithPut_7
+retsub
+
+// replaceBox_caster
+replaceBoxcaster_22:
+proto 0 0
+byte ""
+dup
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub replaceBox_8
+retsub
+
+// writeBox_caster
+writeBoxcaster_23:
+proto 0 0
+byte ""
+dup
+txna ApplicationArgs 1
+frame_bury 0
+txna ApplicationArgs 2
+frame_bury 1
+frame_dig 0
+frame_dig 1
+callsub writeBox_9
+retsub
+
+// extractBox_caster
+extractBoxcaster_24:
+proto 0 0
+byte ""
+dup
+int 0
+dup
+txna ApplicationArgs 1
+frame_bury 1
+txna ApplicationArgs 2
+int 0
+getbyte
+frame_bury 2
+txna ApplicationArgs 3
+int 0
+getbyte
+frame_bury 3
+frame_dig 1
+frame_dig 2
+frame_dig 3
+callsub extractBox_10
+frame_bury 0
+byte 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// getBox_caster
+getBoxcaster_25:
+proto 0 0
+byte ""
+dup
+txna ApplicationArgs 1
+frame_bury 1
+frame_dig 1
+callsub getBox_11
+frame_bury 0
+byte 0x151f7c75
+frame_dig 0
+concat
+log
+retsub
+
+// deleteBox_caster
+deleteBoxcaster_26:
+proto 0 0
+byte ""
+txna ApplicationArgs 1
+frame_bury 0
+frame_dig 0
+callsub deleteBox_12
+retsub
+
+// getBoxSize_caster
+getBoxSizecaster_27:
+proto 0 0
+int 0
+byte ""
+txna ApplicationArgs 1
+frame_bury 1
+frame_dig 1
+callsub getBoxSize_13
+frame_bury 0
+byte 0x151f7c75
+frame_dig 0
+itob
+concat
+log
 retsub
